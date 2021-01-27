@@ -1,5 +1,5 @@
 {
-  "name": "serverless-aliyun-function-compute",
+  "name": "wilson208-serverless-aliyun-function-compute",
   "version": "1.2.6",
   "description": "Provider plugin for the Serverless Framework v1.x which adds support for Aliyun Function Compute",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "function",
     "compute"
   ],
-  "author": "Joyee Cheung <joyeec9h3@gmail.com>",
+  "author": "Wilson McCoubrey <wilson@wilsonmccoubrey.com>",
   "license": "MIT",
   "dependencies": {
     "@alicloud/cloudapi": "^1.1.0",
