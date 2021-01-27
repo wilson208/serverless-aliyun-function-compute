@@ -358,6 +358,15 @@ class AliyunProvider {
       || service.provider.timeout
       || 30;
 
+    let environmentVariables = {};
+    if (funcObject.environment || service.provider.environment) {
+      environmentVariables = Object.assign(
+        {},
+        funcObject.environment,
+        service.provider.environment
+      );
+    }
+
     // TODO(joyeecheung): description
     return {
       'Type': 'ALIYUN::FC::Function',
@@ -371,7 +380,8 @@ class AliyunProvider {
         'code': {
           'ossBucketName': this.getDeploymentBucketName(),
           'ossObjectName': service.package.artifactFilePath
-        }
+        },
+        'environmentVariables': environmentVariables
       }
     };
   }
