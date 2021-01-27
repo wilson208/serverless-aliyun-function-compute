@@ -365,6 +365,12 @@ class AliyunProvider {
         funcObject.environment,
         service.provider.environment
       );
+
+      for (const envKey in environmentVariables) {
+        if (typeof environmentVariables[envKey] !== 'string' && typeof environmentVariables[envKey].toString === 'function') {
+          environmentVariables[envKey] = environmentVariables[envKey].toString();
+        }
+      }
     }
 
     // TODO(joyeecheung): description
