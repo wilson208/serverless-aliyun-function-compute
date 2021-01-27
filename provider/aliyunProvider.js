@@ -390,10 +390,16 @@ class AliyunProvider {
   }
 
   getServiceConfig(event, funcObject) {
+    const service = this.serverless.service;
+
+    const timeout = funcObject.timeout
+        || service.provider.timeout
+        || 30;
+
     return {
       'ServiceProtocol': 'FunctionCompute',
       'Mock': 'FALSE',
-      'ServiceTimeout': 3000,  // TODO(joyeecheung): use config?
+      'ServiceTimeout': timeout * 1000,
       'FunctionComputeConfig': {
         'FcRegionId': this.options.region,
         'ServiceName': this.getServiceName(),
